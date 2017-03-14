@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int **table;
+void find();
+void change(int, int);
+int dx[4] = { -1, 0, 1, 0 }, dy[4] = { 0, 1, 0, -1 };
+int row, col;
+int main(){
+	int numofcase, num;
+	int a, b, x, y;
+
+	scanf("%d", &numofcase);
+	for (a = 0; a < numofcase; a++){
+		scanf("%d %d %d", &row, &col, &num);
+
+		table = (int **)malloc(sizeof(int *) * row);
+		for (b = 0; b < row; b++){
+			table[b] = (int*)malloc(sizeof(int) *col);
+		}
+
+		for (x = 0; x < row; x++){
+			for (y = 0; y < col; y++)
+				table[x][y] = 0;
+		}
+
+		for (b = 0; b < num; b++){
+			scanf("%d %d", &x, &y);
+			table[x][y] = 1;
+		}
+		find(row, col);
+	}
+
+	return 0;
+}
+void change(int x, int y){
+	int ix, iy;
+	int a;
+	for (a = 0; a < 4; a++){
+		ix = x + dx[a];
+		iy = y + dy[a];
+		if (ix<0 || ix>row - 1 || iy<0 || iy>col - 1)
+			continue;
+		if (table[ix][iy] == 1){
+			table[ix][iy] = 0;
+			change(ix, iy);
+		}
+	}
+}
+void find(){
+	int num = 0;
+	int a, b;
+
+	for (a = 0; a < row; a++){
+		for (b = 0; b < col; b++){
+			if (table[a][b] == 1){
+				++num;
+				change(a, b);
+			}
+		}
+	}
+	printf("%d\n", num);
+}
