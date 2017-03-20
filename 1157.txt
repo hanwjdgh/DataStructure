@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+	int arr[26] = { 0, };
+	char str[1000001];
+	int a,idx,max,len;
+
+	scanf("%s", str);
+	len = strlen(str);
+	for (a = 0; a < len; a++){
+		if (str[a] >= 'a'&&str[a] <= 'z')
+			arr[str[a] - 'a']++;
+		if (str[a] >= 'A'&&str[a] <= 'Z')
+			arr[str[a] - 'A']++;
+	}
+
+	for (a = 0; a < 26; a++){
+		if (a == 0){
+			max = arr[a];
+			idx = a;
+		}
+		else if (max < arr[a]){
+			max = arr[a];
+			idx = a;
+		}
+		else if (max == arr[a]){
+	
+			idx = 30;
+		}
+	}
+
+	if (idx == 30)
+		printf("?");
+	else
+		printf("%c", idx + 65);
+	return 0;
+}
