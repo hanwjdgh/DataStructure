@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main(void){
+	int arr[10];
+	int num, idx = 0,tmp;
+	int a,b;
+
+	scanf("%d", &num);
+	while (num > 0){
+		arr[idx++] = num % 10;
+		num /= 10;
+	}
+	
+	for (a = 0; a < idx; a++){
+		for (b = a + 1; b < idx; b++){
+			if (arr[a] < arr[b]){
+				tmp = arr[b];
+				arr[b] = arr[a];
+				arr[a] = tmp;
+			}
+		}
+	}
+	for (a = 0; a < idx; a++)
+		printf("%d", arr[a]);
+	return 0;
+}
