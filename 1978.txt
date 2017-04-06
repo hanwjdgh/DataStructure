@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(void) {
+	int arr[100];
+	int a,b,x;
+	int cnt,pri=0;
+
+	scanf("%d", &a);
+
+	for (b = 0; b < a; b++) {
+		scanf("%d", &arr[b]);
+		if (arr[b] != 1) {
+			cnt = 0;
+			for (x = 1; x <= arr[b]; x++) {
+				if (arr[b] % x == 0)
+					cnt++;
+			}
+			if (cnt == 2)
+				pri++;
+		}
+	}
+	printf("%d", pri);
+	return 0;
+}
