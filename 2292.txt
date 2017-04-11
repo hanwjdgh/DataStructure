@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(void){
+	int N, cnt = 2;
+	int a = 1;
+	scanf("%d", &N);
+	if (N == 1)
+		printf("1");
+	else{
+		while (1){
+			if (N >= (3*a*a-3*a+2) && N <= (3*a*a+3*a+1)){
+				printf("%d", cnt);
+				break;
+			}
+			++cnt;
+			++a;
+		}
+	}
+	return 0;
+}
