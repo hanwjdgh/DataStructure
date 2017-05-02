@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(void){
+	int arr[1000] = { 0, };
+	int N,tmp;
+	int a,b;
+
+	scanf("%d", &N);
+	for (a = 0; a < N; a++)
+		scanf("%d",&arr[a]);
+
+	
+	for (a = 0; a < N; a++){
+		for (b = a+1; b < N; b++){
+			if (arr[a] > arr[b]){
+				tmp = arr[b];
+				arr[b] = arr[a];
+				arr[a] = tmp;
+			}
+		}
+	}
+	for (a = 0; a < N; a++)
+		printf("%d\n", arr[a]);
+	return 0;
+}
