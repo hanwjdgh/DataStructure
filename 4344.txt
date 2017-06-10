@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main(){
+	int C,N,arr[1000];
+	int a, b, hap, cnt = 0;
+
+	scanf("%d", &C);
+	for (a = 0; a < C; a++){
+		scanf("%d", &N);
+		hap = 0;
+		for (b = 0; b < N; b++){
+			scanf("%d", &arr[b]);
+			hap += arr[b];
+		}
+		cnt = 0;
+		for (b = 0; b < N; b++){
+			if (arr[b] > hap/N)
+				cnt++;
+		}
+		printf("%.3lf%%\n", (double)cnt / N * 100);
+	}
+	return 0;
+}
