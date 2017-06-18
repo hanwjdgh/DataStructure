@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main(){
+	int a, b, hap = 0;
+	scanf("%d", &a);
+	for (b = 0; b < a; b++)
+		hap += (b + 1);
+	printf("%d", hap);
+	return 0;
+}
