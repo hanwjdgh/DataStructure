@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void){
+	char str[80];
+	int cas,sum,cnt;
+	int a,b;
+
+	scanf("%d", &cas); getchar();
+
+	for (a = 0; a < cas; a++){
+		scanf("%s", str);
+		sum = cnt = 0;
+		for (b = 0; b < strlen(str); b++){
+			if (str[b] == 'O')
+				++cnt;
+			if (str[b] == 'X')
+				cnt = 0;
+			sum += cnt;
+		}
+		printf("%d\n", sum);
+	}
+
+	return 0;
+}
