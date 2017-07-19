@@ -1,11 +1,11 @@
-#include <stdio.h>
+#include <cstdio>
 
-int main(){
+int main() {
 	int N;
 	int cnt = 0;
 
 	scanf("%d", &N);
-	while (1){
+	while (1) {
 
 		if (N == 0) break;
 		else if (N < 0) {
