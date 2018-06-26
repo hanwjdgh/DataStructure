@@ -26,11 +26,11 @@ struct DLinkedList {
 	Node *head;
 	Node *tail;
 	int count;
-	DLinkedList() { //생성자
+	DLinkedList() { 
 		count = 0;
-		head = new Node(); //더미를 선언해서 가지고 있게한다.
-		tail = new Node(); //더미를 선언해서 가지고 있게한다.
-		head->next = tail; //서로연결한다.
+		head = new Node(); 
+		tail = new Node(); 
+		head->next = tail; 
 		tail->prev = head;
 	}
 	~DLinkedList() {
@@ -39,17 +39,17 @@ struct DLinkedList {
 		delete head;
 		delete tail;
 	}
-	void firstInsert(int i) { //head 다음에 추가한다.
+	void firstInsert(int i) { 
 		new Node(i, head);
 	}
-	void endInsert(int i) { //tail 앞에 추가한다.
+	void endInsert(int i) { 
 		new Node(i, tail->prev);
 	}
-	void firstDelete() { //head 다음 노드 삭제한다.
+	void firstDelete() { 
 		if (head->next == tail)    return;
 		head->next->selvDelete();
 	}
-	void endDelete() { //tail 앞에 제거한다.
+	void endDelete() { 
 		if (tail->prev == head) return;
 		tail->prev->selvDelete();
 	}
@@ -64,14 +64,14 @@ struct DLinkedList {
 
 int main() {
 	DLinkedList *list = new DLinkedList();
-	list->firstInsert(1); //1을 삽입한다.(가장앞)
-	list->firstInsert(3); //3을 삽입한다.(1앞에)
-	list->firstInsert(5); //5을 삽입한다.(3앞에)
-	list->firstDelete(); //5를 삭제한다
-	list->endInsert(100); //100을 삽입한다.(가장뒤에)
-	list->endInsert(200); //200을 삽입한다.(100뒤에)
-	list->endInsert(300); //300을 삽입한다.(200뒤에)
-	list->endDelete(); //300을 삭제한다.
+	list->firstInsert(1); 
+	list->firstInsert(3); 
+	list->firstInsert(5); 
+	list->firstDelete(); 
+	list->endInsert(100); 
+	list->endInsert(200); 
+	list->endInsert(300); 
+	list->endDelete();
 	list->printAll();
 	delete list;
 }
