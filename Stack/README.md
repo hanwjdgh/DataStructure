@@ -1,6 +1,6 @@
 # Stack
 
-Stack : LIFO(Last In First Out)
+LIFO(Last In First Out)
 
 * push(element) : Add the element to top 
 * pop() : Delete the element in top
