@@ -14,7 +14,8 @@ FIFO(First In First Out)
 priority_queue <T, Container, Compare>
 
 Compare = less : Max heap
-Compare = grater : Min heap
+
+Compare = greater : Min heap
 
 * push(element) : Add the element to the priority queue
 * pop() : Delete the element of top from the priority queue
