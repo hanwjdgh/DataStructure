@@ -1,4 +1,3 @@
 # DataStructure
 
-- Reference
-Some code and images from https://www.geeksforgeeks.org/
+Reference : Some code and images from https://www.geeksforgeeks.org/
