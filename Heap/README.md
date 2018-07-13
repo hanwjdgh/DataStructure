@@ -7,8 +7,8 @@ If A is parent node of B, there is a large(small) relationship between the key v
 
 ## Binary Heap
 
-* Min heap : the key at root must be minimum among all keys present in Binary Heap. (priority_queue <T, Container, greater>)
-* Max heap : the key at root must be maximum among all keys present in Binary Heap. (priority_queue <T, Container, less>)
+* Min heap : the key at root must be minimum among all keys present in Binary Heap. </br>(priority_queue <T, Container, greater>)
+* Max heap : the key at root must be maximum among all keys present in Binary Heap. </br>(priority_queue <T, Container, less>)
 
 ## Binomial Heap
 
