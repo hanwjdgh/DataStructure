@@ -25,4 +25,5 @@ int main() {
 		q[len].push(i);
 	}
 	printf("%lld\n", ans);
+    return 0;
 }
