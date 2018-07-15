@@ -19,6 +19,7 @@ void update(vector<long long> &tree, int i, long long diff) {
 		i += (i&-i);
 	}
 }
+
 int main() {
 	int t, num;
 	int n, m;
