@@ -28,10 +28,9 @@ void update(vector<long long> &tree, int node, int start, int end, int index, lo
 		update(tree, node * 2, start, mid, index, diff);
 		update(tree, node * 2 + 1, mid + 1, end, index, diff);
 	}
-
 }
 
-long long sum(vector<long long> &tree, int node, int start, int end, int left, int right)
+long long query(vector<long long> &tree, int node, int start, int end, int left, int right)
 {
 	if (left > end || right < start)
 		return 0;
@@ -40,7 +39,7 @@ long long sum(vector<long long> &tree, int node, int start, int end, int left, i
 		return tree[node];
 
 	int mid = (start + end) / 2;
-	return sum(tree, node * 2, start, mid, left, right) + sum(tree, node * 2 + 1, mid + 1, end, left, right);
+	return query(tree, node * 2, start, mid, left, right) + query(tree, node * 2 + 1, mid + 1, end, left, right);
 }
 
 int main() {
@@ -65,7 +64,7 @@ int main() {
 	init(tree, 1, 0, N - 1);
 	for (int i = 0; i < N; i++) {
 		update(tree, 1, 0, N - 1, B[i] - 1, 1);
-		answer += sum(tree, 1, 0, N - 1, B[i], N - 1);
+		answer += query(tree, 1, 0, N - 1, B[i], N - 1);
 	}
 	printf("%lld\n", answer);
 
