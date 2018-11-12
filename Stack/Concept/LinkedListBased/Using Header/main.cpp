@@ -9,7 +9,7 @@ int main() {
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
-    // Declaration array stack
+    // Declaration LinkedList stack
 	LStack stack;
 
     // Initialize stack
