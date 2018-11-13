@@ -12,6 +12,8 @@ delete data : <  </br>
 
 <img width="500" height="110" src="https://user-images.githubusercontent.com/23069776/42480594-423c636e-8419-11e8-82b9-09b2c548f150.png"></img>
 
+- Time Complexity - Average O(N), Worst : O(1)
+
 ## Doubly Linked List
 
 Contains an extra pointer, typically called previous pointer, together with next pointer and data which are there in singly linked list.
