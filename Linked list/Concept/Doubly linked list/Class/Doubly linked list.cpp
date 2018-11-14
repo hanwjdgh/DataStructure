@@ -45,11 +45,12 @@ public:
 	void print(bool isReverse);
 };
 
+// Constructor
 doublyLinkedList::doublyLinkedList() {
 	this->head = NULL;
 	this->tail = NULL;
 }
-
+// Destructor 
 doublyLinkedList::~doublyLinkedList() {
 	if (!this->head) return;
 
@@ -61,6 +62,7 @@ doublyLinkedList::~doublyLinkedList() {
 	current->distroy();
 }
 
+// Insert node at end of list
 void doublyLinkedList::insertLast(Node* node) {
 	if (!this->head) {
 		this->head = node;
@@ -73,7 +75,7 @@ void doublyLinkedList::insertLast(Node* node) {
 		this->tail = node;
 	}
 }
-
+// Insert node at front of list
 void doublyLinkedList::insertFirst(Node* node) {
 	if (!this->head && !this->tail) {
 		this->head = node;
