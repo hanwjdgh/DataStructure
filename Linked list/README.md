@@ -20,6 +20,8 @@ Contains an extra pointer, typically called previous pointer, together with next
 
 <img width="500" height="120" src="https://user-images.githubusercontent.com/23069776/42480709-c9010b2a-8419-11e8-9b51-d2e9d64ef32e.png"></img>
 
+- Time Complexity - Average O(N), Worst : O(1)
+
 ## Circular Linked List
 
 Linked list where all nodes are connected to form a circle. There is no NULL at the end.
