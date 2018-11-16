@@ -14,7 +14,7 @@ int main() {
 
 	cout << s.top() << endl; // 4
 	cout << s.size() << endl; // 5
-	cout << (s.empty() ? "Yes" : "No") << endl; // No
+	cout << (s.empty() ? "Yes" : "No") << "\n"; // No
 
     // Pop data
 	while (!s.empty()) {
@@ -23,5 +23,4 @@ int main() {
 	}
 	// 4 3 2 1 0
 	return 0;
-
 }

@@ -20,7 +20,7 @@ Node::Node(int data) {
 }
 // Destructor 
 Node::~Node() {
-	cout << "Deleting node (" << this->data << ")" << endl;
+	cout << "Deleting node (" << this->data << ")" << "\n";
 }
 
 // Stack class
@@ -65,7 +65,7 @@ void Stack::Push(int data) {
 	}
 	length++;
 
-	cout << "Push: " << data << endl;
+	cout << "Push: " << data << "\n";
 }
 // Delete the element in top
 int Stack::Pop() {
@@ -75,7 +75,7 @@ int Stack::Pop() {
 
 	length--;
 	delete old;
-	cout << "Pop: " << data << endl;
+	cout << "Pop: " << data << "\n";
 	return data;
 }
 // Return true if the stack is empty or false otherwise
