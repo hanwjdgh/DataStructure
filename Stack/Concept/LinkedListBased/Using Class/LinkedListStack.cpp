@@ -3,122 +3,127 @@
 
 using namespace std;
 
-// Node class
-class Node {
-public:
+// Node struct
+typedef struct node {
 	int data;
-	Node* next;
+	node *next;
 
-	Node(int data);
-	~Node();
-};
-
-// Constructor
-Node::Node(int data) {
-	this->data = data;
-	this->next = NULL;
-}
-// Destructor 
-Node::~Node() {
-	cout << "Deleting node (" << this->data << ")" << "\n";
-}
+	node(int value) {
+		data = value;
+		next = NULL;
+	}
+}Node;
 
 // Stack class
 class Stack {
+private:
+	node *top;
+	int size;
 public:
-	Node* topNode;
-	int length;
+	// Constructor
+	Stack() {
+		top = NULL;
+		size = 0;
+	}
+	// Destructor 
+	~Stack() {
+		Node *cur = top;
+		cout << "Delete : ";
+		while (top) {
+			Node *tmp = top;
+			top = top->next;
+			cout << tmp->data << " ";
+			delete tmp;
+		}
+		cout << "\n";
+	}
 
-	Stack();
-	~Stack();
+	// Push data to top
+	void push(int data) {
+		// Make new node
+		Node *tmp = new node(data);
 
-	void Push(int data);
-	int Pop();
-	bool IsEmpty();
-	int GetSize();
-	int Peek();
-};
+		// If top is NULL, new node is top
+		if (!top)
+			top = tmp;
+		// Else new node is top and new node's next is previous top
+		else {
+			Node *cur = top;
+			top = tmp;
+			top->next = cur;
+		}
+		// Increase size by 1
+		size++;
 
-// Constructor
-Stack::Stack() {
-	this->topNode = NULL;
-	this->length = 0;
-}
-// Destructor 
-Stack::~Stack() {
-	Node* top = this->topNode;
-	while (top) {
-		Node* old = top;
+		cout << "Push : " << data << "\n";
+	}
+	// Pop data
+	int pop() {
+		// Store top data in rdata
+		int rdata = top->data;
+		// Store top node in cur
+		Node *cur = top;
+		// Change top to top's next
 		top = top->next;
-		delete old;
+
+		// Derease size by 1
+		size--;
+		// Delete top node
+		delete cur;
+		// Return data
+		return rdata;
 	}
-}
-
-// Insert the element to top
-void Stack::Push(int data) {
-	if (this->topNode == NULL) 
-		this->topNode = new Node(data);
-	else {
-		Node* old = this->topNode;
-		this->topNode = new Node(data);
-		this->topNode->next = old;
+	// Return true if the stack is empty or false otherwise
+	bool isEmpty() {
+		return top == NULL;
 	}
-	length++;
-
-	cout << "Push: " << data << "\n";
-}
-// Delete the element in top
-int Stack::Pop() {
-	int data = this->topNode->data;
-	Node* old = this->topNode;
-	this->topNode = this->topNode->next;
-
-	length--;
-	delete old;
-	cout << "Pop: " << data << "\n";
-	return data;
-}
-// Return true if the stack is empty or false otherwise
-bool Stack::IsEmpty() {
-	return (this->topNode == NULL);
-}
-// Return size of stack
-int Stack::GetSize() {
-	return length;
-}
-// Return the element at the top
-int Stack::Peek() {
-	return this->topNode->data;
-}
+	// Return size of stack
+	int getSize() {
+		return size;
+	}
+	// Return the data at the top
+	int peek() {
+		return top->data;
+	}
+	// Print stack from top to bottom
+	void print() {
+		Node *cur = top;
+		cout << "Top ";
+		while (cur) {
+			cout << cur->data << " ";
+			cur = cur->next;
+		}
+		cout << "Bottom \n";
+	}
+};
 
 int main() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
-    // Declaration LinkedList stack
+	// Declaration LinkedList stack
 	Stack stack;
 
-    // Push data in stack
-	stack.Push(1);
-	stack.Push(2);
-	stack.Push(3);
+	// Push data in stack
+	stack.push(1);
+	stack.push(2);
+	stack.push(3);
+
+	// Print stack
+	stack.print();
 
 	// Print data that top of stack
-	cout << "Peek: " << stack.Peek() << "\n";
+	cout << "Peek: " << stack.peek() << "\n";
 	// Print size of stack
-	cout << "Size: " << stack.GetSize() << "\n";
+	cout << "Size: " << stack.getSize() << "\n";
 
 	// Pop data in stack
-	stack.Pop();
-	stack.Pop();
+	cout << "Pop : " << stack.pop() << "\n";
+	cout << "Pop : " << stack.pop() << "\n";
 
 	// Print whether stack is empty or not
-	cout << "Empty: " << (stack.IsEmpty() ? "TRUE" : "FALSE") << "\n";
-
-	stack.Pop();
-
-	cout << "Empty: " << (stack.IsEmpty() ? "TRUE" : "FALSE") << "\n";
+	cout << "Empty: " << (stack.isEmpty() ? "TRUE" : "FALSE") << "\n";
 
 	return 0;
 }
