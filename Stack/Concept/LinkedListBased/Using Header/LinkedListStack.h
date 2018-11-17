@@ -1,9 +1,6 @@
 #ifndef __L_STACK_H_
 #define __L_STACK_H_
 
-#define TRUE 1
-#define FALSE 0
-
 // Stack Node
 typedef struct node {
 	int data;
