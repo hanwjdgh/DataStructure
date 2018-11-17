@@ -13,12 +13,7 @@ void Init(LStack *pstack) {
 // Return true if the stack is empty or false otherwise
 int IsEmpty(LStack *pstack) {
     // If head pointer is NULL, stack is empty
-	if (pstack->head == NULL)
-		return TRUE;
-
-    // Else not empty
-	else
-		return FALSE;
+	return pstack->head == NULL
 }
 
 // Insert the element to top
