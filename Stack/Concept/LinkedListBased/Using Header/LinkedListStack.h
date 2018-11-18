@@ -14,10 +14,11 @@ typedef struct listStack {
 
 typedef ListStack LStack;
 
-void Init(LStack *pstack); // Stack initialization
-int IsEmpty(LStack *pstack); // Return true if the stack is empty or false otherwise
-void Push(LStack *pstack, int data); // Insert the element to top
-int Pop(LStack *pstack); // Delete the element in top
-int Peek(LStack *pstack); // Return the element at the top
+void init(LStack *pstack); // Stack initialization
+int isEmpty(LStack *pstack); // Return true if the stack is empty or false otherwise
+void push(LStack *pstack, int value); // Insert the element to top
+int pop(LStack *pstack); // Delete the element in top
+int peek(LStack *pstack); // Return the element at the top
+void print(LStack *pstack); // Print stack
 
 #endif
