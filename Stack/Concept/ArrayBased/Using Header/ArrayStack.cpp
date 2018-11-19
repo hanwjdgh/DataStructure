@@ -4,58 +4,83 @@
 using namespace std;
 
 // Stack initialization
-void Init(AStack *pstack) {
-    // In stack array, array index starts from 0, so -1 is defined as initialization
+void init(AStack *pstack) {
+	// In stack array, array index starts from 0, so -1 is defined as initialization
 	pstack->topIndex = -1;
 }
 
 // Return true if the stack is empty or false otherwise
-int IsEmpty(AStack *pstack) {
-    // If array index is -1, stack is empty
-	if (pstack->topIndex == -1)
-		return TRUE;
+bool isFull(AStack *pstack) {
+	// If array index is STACK_LEN , stack is full
+	return pstack->topIndex + 1 == STACK_LEN;
+}
 
-    // Else not empty
-	else
-		return FALSE;
+// Return true if the stack is empty or false otherwise
+bool isEmpty(AStack *pstack) {
+	// If array index is -1, stack is empty
+	return pstack->topIndex == -1;
 }
 
 // Insert the element to top
-void Push(AStack *pstack, int data) {
-    // Increase array index by 1
-	pstack->topIndex += 1;
-    // Insert data in stack array
-	pstack->stackArr[pstack->topIndex] = data;
+void push(AStack *pstack, int data) {
+	// If stack is full, return
+	if (isFull(pstack)) {
+		cout << "Stack is Full \n";
+		return;
+	}
+	cout << "Push : " << data << "\n";
+
+	// Push data
+	pstack->stackArr[++pstack->topIndex] = data;
 }
 
-
 // Delete the element in top
-int Pop(AStack *pstack) {
+void pop(AStack *pstack) {
 	int tidx;
 
-    // If stack is empty, exit program
-	if (IsEmpty(pstack)) {
-		cout << "Stack Memory Error!" << "\n";
-		exit(-1);
+	// If stack is empty, return
+	if (isEmpty(pstack)) {
+		cout << "Stack is Empty \n";
+		return;
 	}
 
-    // Store current array number in tidx 
+	// Store current array number in tidx 
 	tidx = pstack->topIndex;
-    // Decrease array index by 1
+	// Decrease array index by 1
 	pstack->topIndex -= 1;
-	
-    // Return data with the array number stored in tidx
-	return pstack->stackArr[tidx];
+
+	// Pop data
+	cout << "Pop : " << pstack->stackArr[tidx] << "\n";
+}
+
+// Return size of stack
+int getSize(AStack *pstack) {
+	return pstack->topIndex + 1;
 }
 
 // Return the element at the top
-int Peek(AStack *pstack) {
-    // If stack is empty, exit program
-	if (IsEmpty(pstack)) {
-		cout << "Stack Memory Error!" << "\n";
-		exit(-1);
+void peek(AStack *pstack) {
+	// If stack is empty, return
+	if (isEmpty(pstack)) {
+		cout << "Stack is Empty \n";
+		return;
 	}
 
-    // Return data that top of stack 
-	return pstack->stackArr[pstack->topIndex];
+	// Print top of stack 
+	cout << "Peek : " << pstack->stackArr[pstack->topIndex] << "\n";
+}
+
+// Print stack
+void print(AStack *pstack) {
+	// If stack is empty, return
+	if (isEmpty(pstack)) {
+		cout << "Stack is Empty \n";
+		return;
+	}
+
+	// Print stack from top to bottom
+	cout << "Top ";
+	for (int i = pstack->topIndex; i > -1; i--)
+		cout << pstack->stackArr[i] << " ";
+	cout << "Bottom \n";
 }

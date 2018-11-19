@@ -9,26 +9,35 @@ int main() {
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
-    // Declaration array stack
+	// Declaration array stack
 	AStack stack;
 
-    // Initialize stack
-	Init(&stack);
+	// Initialize stack
+	init(&stack);
 
-    // Push data in stack
-	Push(&stack, 1);
-	Push(&stack, 2);
-	Push(&stack, 3);
-	Push(&stack, 4);
-	Push(&stack, 5);
+	// Push data
+	push(&stack, 1);
+	push(&stack, 2);
+	push(&stack, 3);
+	push(&stack, 4);
 
-    // Print data that top of stack
-	cout << "Peek : " << Peek(&stack) << "\n";
-	
-    // Pop data in stack until stack is empty
-    cout << "Pop : ";
-	while (!IsEmpty(&stack))
-		cout << Pop(&stack) << " ";
+	// Print stack from top to bottom
+	print(&stack);
+
+	// Print data that top of stack
+	peek(&stack);
+	// Print size of stack
+	cout << "Size: " << getSize(&stack) << "\n";
+
+	// Pop data
+    pop(&stack);
+	pop(&stack);
+
+	// Print whether stack is empty or not
+	cout << "Empty: " << (isEmpty(&stack) ? "TRUE" : "FALSE") << "\n";
+
+	while (!isEmpty(&stack))
+		pop(&stack);
 
 	return 0;
 }
