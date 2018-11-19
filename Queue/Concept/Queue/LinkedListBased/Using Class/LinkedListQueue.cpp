@@ -20,12 +20,12 @@ private:
 	node *front, *rear;
 	int size;
 public:
-    // Constructor
+	// Constructor
 	Queue() {
 		front = rear = NULL;
 		size = 0;
 	}
-    // Destructor 
+	// Destructor 
 	~Queue() {
 		Node *cur = front;
 		cout << "Delete : ";
@@ -38,65 +38,65 @@ public:
 		cout << "\n";
 	}
 
-    // Push data
+	// Push data
 	void enQueue(int data) {
-        // Make new node
+		// Make new node
 		Node *tmp = new node(data);
 
-        // If queue is empty, new node is front and rear
-		if (isEmpty()) 
+		// If queue is empty, new node is front and rear
+		if (isEmpty())
 			front = rear = tmp;
-        // Else rear and rear'next is new node
+		// Else rear and rear'next is new node
 		else {
 			rear->next = tmp;
 			rear = tmp;
 		}
-        // Increase size by 1
+		// Increase size by 1
 		size++;
 
 		cout << "Enqueue : " << data << "\n";
 	}
-    // Pop data
-	int deQueue() {
-        // If queue is empty, exit program
+	// Pop data
+	void deQueue() {
+		// If queue is empty, retrun
 		if (isEmpty()) {
-			cout << "Queue Memory Error!" << "\n";
-			exit(-1);
+			cout << "Queue is Empty" << "\n";
+			return;
 		}
-        // store front data in rdata
-		int rdata = front->data;
-        // Store front node in cur
-		Node *cur = front;
-        // Change front to front's next
+
+		// Store front node in cur
+		Node *tnode = front;
+		// Store front data in rdata
+		int tdata = tnode->data;
+		// Change front to front's next
 		front = front->next;
 
-        // Decrease size by 1
+		// Decrease size by 1
 		size--;
-        // Delete front node
-		delete cur;
-        // Return data
-		return rdata;
+		// Delete front node
+		delete tnode;
+		cout << "Dequeue : " << tdata << "\n";
 	}
-    // Return true if the stack is empty or false otherwise
+	// Return true if the stack is empty or false otherwise
 	bool isEmpty() {
 		return front == NULL;
 	}
-    // Return size of queue
+	// Return size of queue
 	int getSize() {
 		return size;
 	}
-    // Return the data at the front
+	// Return the data at the front
 	int peek() {
 		return front->data;
 	}
-    // Print stack from front to rear
+	// Print stack from front to rear
 	void print() {
 		Node *cur = front;
 
-		// If queue is empty, print commet
+		// If queue is empty, retrun
 		if (isEmpty()) {
 			cout << "Queue is Empty" << "\n";
-			return
+			return;
 		}
 
 		cout << "Front ";
@@ -130,8 +130,8 @@ int main() {
 	cout << "Size: " << queue.getSize() << "\n";
 
 	// Pop data in Queue
-	cout << "Pop : " << queue.deQueue() << "\n";
-	cout << "Pop : " << queue.deQueue() << "\n";
+	queue.deQueue();
+	queue.deQueue();
 
 	// Print whether Queue is empty or not
 	cout << "Empty: " << (queue.isEmpty() ? "TRUE" : "FALSE") << "\n";
