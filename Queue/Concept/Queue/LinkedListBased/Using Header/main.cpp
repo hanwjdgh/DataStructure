@@ -20,18 +20,25 @@ int main() {
 	enQueue(&queue, 2);
 	enQueue(&queue, 3);
 	enQueue(&queue, 4);
-	enQueue(&queue, 5);
 
 	// Print queue from front to rear
 	print(&queue);
 
 	// Print data that top of queue
-	cout << "Peek : " << peek(&queue) << "\n";
+	peek(&queue);
+	// Print size of Queue
+	cout << "Size: " << getSize(&queue) << "\n";
+
+	// Pop data in Queue
+	deQueue(&queue);
+	deQueue(&queue);
+
+	// Print whether Queue is empty or not
+	cout << "Empty: " << (isEmpty(&queue) ? "TRUE" : "FALSE") << "\n";
 
 	// Pop data in queue until queue is empty
-	cout << "Pop : ";
 	while (!isEmpty(&queue))
-		cout << deQueue(&queue) << " ";
+		deQueue(&queue);
 
 	return 0;
 }

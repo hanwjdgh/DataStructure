@@ -15,10 +15,11 @@ typedef struct listQueue {
 typedef ListQueue LQueue;
 
 void init(LQueue *pqueue); // Queue initialization
-int isEmpty(LQueue *pqueue); // Return true if the queue is empty or false otherwise
+bool isEmpty(LQueue *pqueue); // Return true if the queue is empty or false otherwise
 void enQueue(LQueue *pqueue, int value); //Insert the element to queue
-int deQueue(LQueue *pqueue); // Delete the element in queue
-int peek(LQueue *pqueue); // Return the element at the front
+void deQueue(LQueue *pqueue); // Delete the element in queue
+int getSize(LQueue *pqueue); // Return size of ququq
+void peek(LQueue *pqueue); // Return the element at the front
 void print(LQueue *pqueue); // Print queue
 
-#endif 
+#endif

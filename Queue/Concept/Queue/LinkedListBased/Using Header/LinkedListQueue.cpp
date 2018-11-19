@@ -11,7 +11,7 @@ void init(LQueue *pqueue) {
 }
 
 // Return true if the queue is empty or false otherwise
-int isEmpty(LQueue *pqueue) {
+bool isEmpty(LQueue *pqueue) {
 	// If front pointer is NULL, queue is empty
 	return pqueue->front == NULL;
 }
@@ -31,17 +31,19 @@ void enQueue(LQueue *pqueue, int value) {
 		pqueue->rear->next = newNode;
 		pqueue->rear = newNode;
 	}
+
+	cout << "Enqueue : " << value << "\n";
 }
 
 // Delete the element in queue
-int deQueue(LQueue *pqueue) {
+void deQueue(LQueue *pqueue) {
 	int tdata;
 	Node *tnode;
 
-	// If queue is empty, exit program
+	// If queue is NULL, return
 	if (isEmpty(pqueue)) {
-		cout << "Queue Memory Error!" << "\n";
-		exit(-1);
+		cout << "Queue is Empty" << "\n";
+		return;
 	}
 
 	// Store the node pointed to by front in tnode
@@ -54,27 +56,37 @@ int deQueue(LQueue *pqueue) {
 	// Delete node in tnode
 	free(tnode);
 
-	// Return data in tdata
-	return tdata;
+	cout << "Dequeue : " << tdata << "\n";
+}
+
+int getSize(LQueue *pqueue) {
+	int size = 0;
+	Node *cur = pqueue->front;
+
+	while (cur) {
+		size++;
+		cur = cur->next;
+	}
+
+	return size;
 }
 
 // Return the element at the front
-int peek(LQueue *pqueue) {
-	// If queue is empty, exit program
+void peek(LQueue *pqueue) {
+	// If queue is NULL, return
 	if (isEmpty(pqueue)) {
-		cout << "Queue Memory Error!" << "\n";
-		exit(-1);
+		cout << "Queue is Empty" << "\n";
+		return;
 	}
 
-	// Return data that front of queue
-	return pqueue->front->data;
+	cout << "Peek : " << pqueue->front->data << "\n";
 }
 
 // Print queue
 void print(LQueue *pqueue) {
 	Node *cur = pqueue->front;
 
-	// If queue is NULL, print queue is empty
+	// If queue is NULL, return
 	if (isEmpty(pqueue)) {
 		cout << "Queue is Empty" << "\n";
 		return;
