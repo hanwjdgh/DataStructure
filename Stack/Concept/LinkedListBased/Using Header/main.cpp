@@ -20,18 +20,25 @@ int main() {
 	push(&stack, 2);
 	push(&stack, 3);
 	push(&stack, 4);
-	push(&stack, 5);
 
 	// Print stack from top to bottom
 	print(&stack);
 
 	// Print data that top of stack
-	cout << "Peek : " << peek(&stack) << "\n";
+	peek(&stack);
+	// Print size of stack
+	cout << "Size: " << getSize(&stack) << "\n";
+
+	// Pop data
+	pop(&stack);
+	pop(&stack);
+
+	// Print whether stack is empty or not
+	cout << "Empty: " << (isEmpty(&stack) ? "TRUE" : "FALSE") << "\n";
 
 	// Pop data in stack until stack is empty
-	cout << "Pop : ";
 	while (!isEmpty(&stack))
-		cout << pop(&stack) << " ";
+		pop(&stack);
 
 	return 0;
 }

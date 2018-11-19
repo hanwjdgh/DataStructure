@@ -11,7 +11,7 @@ void init(LStack *pstack) {
 }
 
 // Return true if the stack is empty or false otherwise
-int isEmpty(LStack *pstack) {
+bool isEmpty(LStack *pstack) {
 	// If head pointer is NULL, stack is empty
 	return pstack->head == NULL;
 }
@@ -31,17 +31,18 @@ void push(LStack *pstack, int value) {
 		newNode->next = pstack->head;
 		pstack->head = newNode;
 	}
+	cout << "Push : " << value << "\n";
 }
 
 // Delete the element in top
-int pop(LStack *pstack) {
+void pop(LStack *pstack) {
 	int tdata;
 	Node *tnode;
 
-	// If stack is empty, exit program
+	// If stack is NULL, return
 	if (isEmpty(pstack)) {
-		cout << "Stack Memory Error!" << "\n";
-		exit(-1);
+		cout << "Stack is Empty" << "\n";
+		return;
 	}
 
 	// Store the node pointed to by head in tnode
@@ -50,31 +51,42 @@ int pop(LStack *pstack) {
 	tdata = tnode->data;
 	// Head point to the node pointed to by head's next point
 	pstack->head = pstack->head->next;
-	
+
 	// Delete node in tnode
 	free(tnode);
 
-	// Return data in tdata
-	return tdata;
+	// Pop data
+	cout << "Pop : " << tdata << "\n";
+}
+
+// Return size of stack
+int getSize(LStack *pstack) {
+	int size = 0;
+	Node *cur = pstack->head;
+
+	while (cur) {
+		size++;
+		cur = cur->next;
+	}
+	return size;
 }
 
 // Return the element at the top
-int peek(LStack *pstack) {
-	// If stack is empty, exit program
+void peek(LStack *pstack) {
+	// If stack is NULL, return
 	if (isEmpty(pstack)) {
-		cout << "Stack Memory Error!" << "\n";
-		exit(-1);
+		cout << "Stack is Empty" << "\n";
+		return;
 	}
 
-	// Return data that top of stack 
-	return pstack->head->data;
+	cout << "Peek : " << pstack->head->data << "\n";
 }
 
 // Print stack
 void print(LStack *pstack) {
 	Node *cur = pstack->head;
 
-	// If stack is NULL, print stack is empty
+	// If stack is NULL, return
 	if (isEmpty(pstack)) {
 		cout << "Stack is Empty" << "\n";
 		return;
