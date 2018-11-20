@@ -12,7 +12,6 @@ bool isEmpty(CQueue *pqueue) {
 	return pqueue->front == NULL;
 }
 
-//Insert the element to queue
 void enQueue(CQueue *pqueue, int value) {
 	// Make new node
 	Node *newNode = (Node *)malloc(sizeof(Node));
