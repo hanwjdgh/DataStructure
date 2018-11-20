@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Queue initialization
 void init(CQueue *pqueue) {
 	// Define queue's front and rear point is NULL
 	pqueue->front = pqueue->rear = NULL;
