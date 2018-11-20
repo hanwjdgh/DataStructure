@@ -9,7 +9,6 @@ void init(CQueue *pqueue) {
 }
 
 bool isEmpty(CQueue *pqueue) {
-	// If front pointer is NULL, queue is empty
 	return pqueue->front == NULL;
 }
 
