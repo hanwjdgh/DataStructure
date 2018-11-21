@@ -15,7 +15,7 @@ typedef struct listCircularQueue {
 typedef ListCircularQueue CQueue;
 
 void init(CQueue *pqueue); // Circular queue initialization
-bool isEmpty(CQueue *pqueue); 
+bool isEmpty(CQueue *pqueue); // Return true if the circular queue is empty or false otherwise
 void enQueue(CQueue *pqueue, int value); 
 void deQueue(CQueue *pqueue); 
 int getSize(CQueue *pqueue); 
