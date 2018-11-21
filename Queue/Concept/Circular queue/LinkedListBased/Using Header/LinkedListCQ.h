@@ -1,13 +1,13 @@
 #ifndef __L_CQUEUE_H_
 #define __L_CQUEUE_H_
 
-
+// Circular Queue Node
 typedef struct node {
 	int data;
 	node *next;
 }Node;
 
-
+// Circular Queue front and rear point
 typedef struct listCircularQueue {
 	Node *front, *rear;
 }ListCircularQueue;
