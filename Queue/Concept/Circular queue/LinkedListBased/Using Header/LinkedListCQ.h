@@ -16,10 +16,10 @@ typedef ListCircularQueue CQueue;
 
 void init(CQueue *pqueue); // Circular queue initialization
 bool isEmpty(CQueue *pqueue); // Return true if the circular queue is empty or false otherwise
-void enQueue(CQueue *pqueue, int value); 
-void deQueue(CQueue *pqueue); 
-int getSize(CQueue *pqueue); 
-void peek(CQueue *pqueue); 
-void print(CQueue *pqueue); 
+void enQueue(CQueue *pqueue, int value); // Insert the element to circular queue
+void deQueue(CQueue *pqueue); // Delete the element in circular queue
+int getSize(CQueue *pqueue); // Return size of circular queue
+void peek(CQueue *pqueue); // Return the element at the front
+void print(CQueue *pqueue); // Print circular queue
 
 #endif 

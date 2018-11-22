@@ -9,36 +9,36 @@ int main() {
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
-	// Declaration LinkedList queue
-	CQueue queue;
+	// Declaration LinkedList circular queue
+	CQueue cqueue;
 
-	// Initialize queue
-	init(&queue);
+	// Initialize circular queue
+	init(&cqueue);
 
-	// Push data in queue
-	enQueue(&queue, 1);
-	enQueue(&queue, 2);
-	enQueue(&queue, 3);
-	enQueue(&queue, 4);
+	// Push data in circular queue
+	enQueue(&cqueue, 1);
+	enQueue(&cqueue, 2);
+	enQueue(&cqueue, 3);
+	enQueue(&cqueue, 4);
 
-	// Print queue from front to rear
-	print(&queue);
+	// Print circular queue from front to rear
+	print(&cqueue);
 
-	// Print data that top of queue
-	peek(&queue);
-	// Print size of Queue
-	cout << "Size: " << getSize(&queue) << "\n";
+	// Print data that top of circular queue
+	peek(&cqueue);
+	// Print size of circular queue
+	cout << "Size: " << getSize(&cqueue) << "\n";
 
-	// Pop data in Queue
-	deQueue(&queue);
-	deQueue(&queue);
+	// Pop data in circular queue
+	deQueue(&cqueue);
+	deQueue(&cqueue);
 
-	// Print whether Queue is empty or not
-	cout << "Empty: " << (isEmpty(&queue) ? "TRUE" : "FALSE") << "\n";
+	// Print whether circular queue is empty or not
+	cout << "Empty: " << (isEmpty(&cqueue) ? "TRUE" : "FALSE") << "\n";
 
-	// Pop data in queue until queue is empty
-	while (!isEmpty(&queue))
-		deQueue(&queue);
+	// Pop data in circular queue until circular queue is empty
+	while (!isEmpty(&cqueue))
+		deQueue(&cqueue);
 
 	return 0;
 }

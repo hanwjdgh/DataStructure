@@ -59,6 +59,7 @@ void deQueue(LQueue *pqueue) {
 	cout << "Dequeue : " << tdata << "\n";
 }
 
+// Return size of queue
 int getSize(LQueue *pqueue) {
 	int size = 0;
 	Node *cur = pqueue->front;
