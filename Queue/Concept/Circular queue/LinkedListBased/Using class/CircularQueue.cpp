@@ -101,8 +101,14 @@ public:
 		return size;
 	}
 	// Return the data at the front
-	int peek() {
-		return front->data;
+	void peek() {
+		// If circular queue is empty, print commet
+		if (isEmpty()) {
+			cout << "Circular Queue is Empty" << "\n";
+			return;
+		}
+
+		cout << "Peek: " << front->data << "\n";
 	}
 	// Print circular queue from front to rear
 	void print() {
@@ -141,7 +147,7 @@ int main() {
 	Cqueue.print();
 
 	// Print data that front of circular queue
-	cout << "Peek: " << Cqueue.peek() << "\n";
+	Cqueue.peek();
 	// Print size of circular queue
 	cout << "Size: " << Cqueue.getSize() << "\n";
 
