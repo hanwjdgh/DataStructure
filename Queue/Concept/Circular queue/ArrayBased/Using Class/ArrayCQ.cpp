@@ -3,17 +3,20 @@
 
 using namespace std;
 
+// CircularQueue class
 class CircularQueue {
 private:
 	int CQ_LEN;
 	int front, rear;
 	int *cqArr;
 public:
+	// Constructor
 	CircularQueue(int size) {
 		front = rear = -1;
 		CQ_LEN = size;
 		cqArr = new int[size];
 	}
+	// Destructor
 	~CircularQueue() {
 		cout << "delete : ";
 		if (rear >= front) {
@@ -29,7 +32,10 @@ public:
 		cout << "\n";
 		delete[] cqArr;
 	}
+
+	// Push data
 	void enQueue(int data) {
+		// If circular queue is full, return
 		if (isFull()) {
 			cout << "Circular Queue is Full" << "\n";
 			return;
@@ -47,7 +53,9 @@ public:
 
 		cout << "Enqueue : " << data << "\n";
 	}
+	// Pop data
 	void deQueue() {
+		// If circular queue is empty, return
 		if (isEmpty()) {
 			cout << "Circular Queue is Empty" << "\n";
 			return;
@@ -63,19 +71,23 @@ public:
 
 		cout << "Dequeue : " << tdata << "\n";
 	}
+	// Return true if the circular queue is full or false otherwise
 	bool isFull() {
 		if ((front == 0 && rear == CQ_LEN - 1) || (rear == (front - 1) % (CQ_LEN - 1)))
 			return true;
 		else
 			return false;
 	}
+	// Return true if the circular queue is empty or false otherwise
 	bool isEmpty() {
 		return front == -1;
 	}
 	int getSize() {//
 		return CQ_LEN;
 	}
+	// Return the data at the front
 	void peek() {
+		// If circular queue is empty, return
 		if (isEmpty()) {
 			cout << "Circular Queue is Empty" << "\n";
 			return;
@@ -83,7 +95,9 @@ public:
 
 		cout << "Peek: " << cqArr[front] << "\n";
 	}
+	// Print circular queue from front to rear
 	void print() {
+		// If circular queue is empty, return
 		if (isEmpty()) {
 			cout << "Circular Queue is Empty" << "\n";
 			return;
@@ -109,26 +123,35 @@ int main() {
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
+	// Declaration LinkedList circular Queue
 	CircularQueue Cqueue(3);
 
+	// Push data
 	Cqueue.enQueue(1);
 	Cqueue.enQueue(2);
 	Cqueue.enQueue(3);
 
+	// Print circular Queue
 	Cqueue.print();
 
+	// Print data that front of circular queue
 	Cqueue.peek();
+	// Print size of circular queue
 	cout << "Size: " << Cqueue.getSize() << "\n";
 
+	// Pop data
 	Cqueue.deQueue();
 	Cqueue.deQueue();
 
+	// Print whether circular queue is empty or not
 	cout << "Empty: " << (Cqueue.isEmpty() ? "TRUE" : "FALSE") << "\n";
 
+	// Push data
 	Cqueue.enQueue(4);
 	Cqueue.enQueue(5);
 	Cqueue.enQueue(6);
 
+	// Print circular Queue
 	Cqueue.print();
 
 	return 0;
