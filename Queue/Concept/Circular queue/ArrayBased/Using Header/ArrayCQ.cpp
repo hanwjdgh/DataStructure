@@ -3,18 +3,23 @@
 
 using namespace std;
 
+// Circular queue initialization
 void init(CQueue *pcqueue) {
+	// Define circular queue's front and rear is -1
 	pcqueue->front = pcqueue->rear = -1;
 }
+// Return true if the circular queue is full or false otherwise
 bool isFull(CQueue *pcqueue) {
 	if ((pcqueue->front == 0 && pcqueue->rear == CQ_LEN - 1) || (pcqueue->rear == (pcqueue->front - 1) % (CQ_LEN - 1)))
 		return true;
 	else
 		return false;
 }
+// Return true if the circular queue is empty or false otherwise
 bool isEmpty(CQueue *pcqueue) {
 	return pcqueue->front == -1;
 }
+// Push data
 void enQueue(CQueue *pcqueue, int data) {
 	if (isFull(pcqueue)) {
 		cout << "Circular Queue is Full" << "\n";
@@ -32,6 +37,7 @@ void enQueue(CQueue *pcqueue, int data) {
 
 	cout << "Enqueue : " << data << "\n";
 }
+// Pop data
 void deQueue(CQueue *pcqueue) {
 	if (isEmpty(pcqueue)) {
 		cout << "Circular Queue is Empty" << "\n";
@@ -48,6 +54,7 @@ void deQueue(CQueue *pcqueue) {
 
 	cout << "Dequeue : " << tdata << "\n";
 }
+// Return size of circular queue
 int getSize(CQueue *pcqueue) {
 	int size = 0;
 
@@ -61,6 +68,7 @@ int getSize(CQueue *pcqueue) {
 		size = pcqueue->front - pcqueue->rear;
 	return size++;
 }
+// Print the element at the front of circular queue
 void peek(CQueue *pcqueue) {
 	if (isEmpty(pcqueue)) {
 		cout << "Circular Queue is Empty" << "\n";
@@ -69,6 +77,7 @@ void peek(CQueue *pcqueue) {
 
 	cout << "Peek: " << pcqueue->cqArr[pcqueue->front] << "\n";
 }
+// Print circular queue
 void print(CQueue *pcqueue) {
 	if (isEmpty(pcqueue)) {
 		cout << "Circular Queue is Empty" << "\n";
