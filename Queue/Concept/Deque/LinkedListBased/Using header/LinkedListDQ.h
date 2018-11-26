@@ -21,5 +21,4 @@ void PopRear(DQueue *pqueue);
 int getSize(DQueue *pqueue); 
 void print(DQueue *pqueue); 
 
-
 #endif
