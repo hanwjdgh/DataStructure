@@ -5,10 +5,10 @@
 using namespace std;
 
 void init(DQueue *pqueue){
-
+    pqueue->head = pqueue->rear = NULL;
 }
 bool isEmpty(DQueue *pqueue){
-
+    
 }
 void pushFront(DQueue *pqueue, int value){
 
