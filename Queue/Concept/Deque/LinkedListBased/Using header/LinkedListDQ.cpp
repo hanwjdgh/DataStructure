@@ -8,7 +8,7 @@ void init(DQueue *pqueue){
     pqueue->head = pqueue->rear = NULL;
 }
 bool isEmpty(DQueue *pqueue){
-    
+    return pqueue -> front == NULL;
 }
 void pushFront(DQueue *pqueue, int value){
 
