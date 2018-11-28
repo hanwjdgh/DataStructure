@@ -26,5 +26,17 @@ int getSize(DQueue *pqueue){
 
 }
 void print(DQueue *pqueue){
-    
+    Node *cur = pqueue->front;
+
+	if (isEmpty(pqueue)) {
+		cout << "Queue is Empty" << "\n";
+		return;
+	}
+
+	cout << "Front ";
+	while (cur) {
+		cout << cur->data << " ";
+		cur = cur->next;
+	}
+	cout << "Rear \n";
 }
