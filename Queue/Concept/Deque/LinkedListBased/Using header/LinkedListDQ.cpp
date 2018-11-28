@@ -23,7 +23,15 @@ void PopRear(DQueue *pqueue){
 
 }
 int getSize(DQueue *pqueue){
+    int size = 0;
+	Node *cur = pqueue->front;
 
+	while (cur) {
+		size++;
+		cur = cur->next;
+	}
+
+	return size;
 }
 void print(DQueue *pqueue){
     Node *cur = pqueue->front;
