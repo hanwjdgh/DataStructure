@@ -11,7 +11,16 @@ bool isEmpty(DQueue *pqueue){
     return pqueue -> head == NULL;
 }
 void pushFront(DQueue *pqueue, int value){
+    Node *newNode = (Node *)malloc(sizeof(Node));
+	newNode->data = value;
+	newNode->front = newNode->rear = NULL;
 
+    if (isEmpty(pqueue)) 
+		pqueue->tail = newNode;
+	else
+        pqueue->head->front = newNode;
+        
+    pqueue->head = newNode;
 }
 void PushRear(DQueue *pqueue, int value){
 
