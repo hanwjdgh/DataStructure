@@ -19,11 +19,20 @@ void pushFront(DQueue *pqueue, int value){
 		pqueue->tail = newNode;
 	else
         pqueue->head->front = newNode;
-        
+
     pqueue->head = newNode;
 }
 void PushRear(DQueue *pqueue, int value){
+    Node *newNode = (Node *)malloc(sizeof(Node));
+	newNode->data = value;
+	newNode->front = newNode->rear = NULL;
 
+    if (isEmpty(pqueue)) 
+		pqueue->head = newNode;
+	else
+        pqueue->tail->rear = newNode;
+
+    pqueue->tail = newNode;
 }
 void popFront(DQueue *pqueue){
 
