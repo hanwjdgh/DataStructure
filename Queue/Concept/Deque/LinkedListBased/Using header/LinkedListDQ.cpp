@@ -35,9 +35,25 @@ void PushRear(DQueue *pqueue, int value){
     pqueue->tail = newNode;
 }
 void popFront(DQueue *pqueue){
+	int tdata;
+	Node *tnode;
 
+	if (isEmpty(pqueue)) {
+		cout << "Queue is Empty" << "\n";
+		return;
+	}
+
+	tnode = pqueue->head;
+	tdata = tnode->data;
+	pqueue->head = pqueue->head->rear;
+	free(tnode);
+
+	if(pqueue->head==NULL)
+		pqueue->tail = NULL;
+	else
+		pqueue->head->front = NULL;
 }
-void PopRear(DQueue *pqueue){
+void popRear(DQueue *pqueue){
 
 }
 int getSize(DQueue *pqueue){
