@@ -9,5 +9,7 @@ int main(){
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
+    DQueue queue;
+    
     return 0;
 }
