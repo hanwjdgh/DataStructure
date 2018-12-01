@@ -22,7 +22,7 @@ void pushFront(DQueue *pqueue, int value){
 
     pqueue->head = newNode;
 }
-void PushRear(DQueue *pqueue, int value){
+void pushRear(DQueue *pqueue, int value){
     Node *newNode = (Node *)malloc(sizeof(Node));
 	newNode->data = value;
 	newNode->front = newNode->rear = NULL;

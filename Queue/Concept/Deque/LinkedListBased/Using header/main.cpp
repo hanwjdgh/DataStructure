@@ -12,6 +12,11 @@ int main(){
     DQueue queue;
     
     init(&queue);
+
+    pushFront(&queue,1);
+    pushFront(&queue,2);
+    pushRear(&queue,3);
+    pushRear(&queue,4);
     
     return 0;
 }

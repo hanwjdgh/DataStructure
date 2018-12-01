@@ -15,7 +15,7 @@ typedef ListDQueue DQueue;
 void init(DQueue *pqueue);
 bool isEmpty(DQueue *pqueue);
 void pushFront(DQueue *pqueue, int value);
-void PushRear(DQueue *pqueue, int value);
+void pushRear(DQueue *pqueue, int value);
 void popFront(DQueue *pqueue);
 void popRear(DQueue *pqueue);
 int getSize(DQueue *pqueue); 
