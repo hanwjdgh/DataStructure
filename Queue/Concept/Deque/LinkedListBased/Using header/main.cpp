@@ -11,5 +11,7 @@ int main(){
 
     DQueue queue;
     
+    init(&queue);
+    
     return 0;
 }
