@@ -18,7 +18,6 @@ bool isEmpty(DQueue *pqueue) {
 
 // Push data to dequeue's front 
 void pushFront(DQueue *pqueue, int value) {
-	// Make new node
 	Node *newNode = (Node *)malloc(sizeof(Node));
 	newNode->data = value;
 	newNode->front = NULL;
@@ -34,7 +33,6 @@ void pushFront(DQueue *pqueue, int value) {
 
 // Push data to dequeue's rear
 void pushRear(DQueue *pqueue, int value) {
-	// Make new node
 	Node *newNode = (Node *)malloc(sizeof(Node));
 	newNode->data = value;
 	newNode->front = pqueue->tail;
@@ -53,9 +51,9 @@ void popFront(DQueue *pqueue) {
 	int tdata;
 	Node *tnode;
 
-	// If circular queue is empty, return
+	// If dequeue is empty, return
 	if (isEmpty(pqueue)) {
-		cout << "Queue is Empty" << "\n";
+		cout << "Dequeue is Empty" << "\n";
 		return;
 	}
 
@@ -75,9 +73,9 @@ void popRear(DQueue *pqueue) {
 	int tdata;
 	Node *tnode;
 
-	// If circular queue is empty, return
+	// If dequeue is empty, return
 	if (isEmpty(pqueue)) {
-		cout << "Queue is Empty" << "\n";
+		cout << "Dequeue is Empty" << "\n";
 		return;
 	}
 
@@ -105,12 +103,24 @@ int getSize(DQueue *pqueue) {
 	return size;
 }
 
+// Print the element at the front
+void peek(DQueue *pqueue) {
+	// If dequeue is empty, return
+	if (isEmpty(pqueue)) {
+		cout << "Dequeue is Empty" << "\n";
+		return;
+	}
+
+	cout << "Peek : " << pqueue->head->data << "\n";
+}
+
 // Print dequeue
 void print(DQueue *pqueue) {
 	Node *cur = pqueue->head;
 
+	// If dequeue is empty, return
 	if (isEmpty(pqueue)) {
-		cout << "Queue is Empty" << "\n";
+		cout << "Dequeue is Empty" << "\n";
 		return;
 	}
 

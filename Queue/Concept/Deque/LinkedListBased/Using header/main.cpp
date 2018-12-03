@@ -9,34 +9,36 @@ int main() {
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
-    // Declaration LinkedList dequeue
+	// Declaration LinkedList dequeue
 	DQueue dqueue;
 
-    // Initialize dequeue
+	// Initialize dequeue
 	init(&dqueue);
 
-    // Push front
+	// Push front
 	pushFront(&dqueue, 2);
 	pushFront(&dqueue, 1);
-    // Push rear
+	// Push rear
 	pushRear(&dqueue, 3);
 	pushRear(&dqueue, 4);
 
-    // Print dequeue from front to rear
+	// Print dequeue from front to rear
 	print(&dqueue);
 
-    // Print size of dequeue
+	// Print data that front of dequeue
+	peek(&dqueue);
+	// Print size of dequeue
 	cout << "Size: " << getSize(&dqueue) << "\n";
 
-    // Print whether dequeue is empty or not
+	// Print whether dequeue is empty or not
 	cout << "Empty: " << (isEmpty(&dqueue) ? "TRUE" : "FALSE") << "\n";
-	
-    // Pop front
+
+	// Pop front
 	popFront(&dqueue);
-    // Pop rear
+	// Pop rear
 	popRear(&dqueue);
 
-    // Print dequeue from front to rear
+	// Print dequeue from front to rear
 	print(&dqueue);
 
 	return 0;
