@@ -5,5 +5,6 @@
 - [new & delete](https://github.com/hanwjdgh/DataStructure/blob/master/00.%20C%2B%2B/Theory/03.%20new%26delete.md)
 - [oop](https://github.com/hanwjdgh/DataStructure/blob/master/00.%20C%2B%2B/Theory/04.%20oop.md)
 - [operator overloading](https://github.com/hanwjdgh/DataStructure/blob/master/00.%20C%2B%2B/Theory/05.%20operator%20overloading.md)
+- [inheritance](https://github.com/hanwjdgh/DataStructure/blob/master/00.%20C%2B%2B/Theory/06.%20inheritance.md)
 
 [Reference] <https://modoocode.com/>
