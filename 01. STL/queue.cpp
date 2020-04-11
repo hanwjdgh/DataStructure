@@ -21,6 +21,14 @@ public:
 		_size = 0;
 	}
 
+	~_queue() {
+		while (head) {
+			Node* tmp = head;
+			head = head->next;
+			delete tmp;
+		}
+	}
+
 	void push(T val) {
 		Node* temp = new Node(val);
 
