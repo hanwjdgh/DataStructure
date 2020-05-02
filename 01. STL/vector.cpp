@@ -7,11 +7,11 @@ class _vector {
 private:
 	int _capacity = 0;
 	int _size = 0;
-	T *arr;
+	T* arr;
 
 public:
-    _vector(int size = 1) : _capacity(size), _size(0), arr(new T[size]){}
-    
+	_vector(int size = 1) : _capacity(size), _size(0), arr(new T[size]) {}
+
 	~_vector() {
 		delete[] arr;
 	}
@@ -31,9 +31,9 @@ public:
 
 	void resize(int size) {
 		_capacity = size;
-		T *temp = new T[size];
+		T* temp = new T[size];
 
-		for (int i = 0; i<_size; i++)
+		for (int i = 0; i < _size; i++)
 			temp[i] = arr[i];
 		delete[] arr;
 
@@ -61,8 +61,21 @@ public:
 		return &arr[0] + _size;
 	}
 
-	T operator[](int idx){
+	T operator[](int idx) {
 		return arr[idx];
 	}
-	
+
 };
+
+int main() {
+	_vector <int > v;
+
+	for (int i = 0; i < 5; i++)
+		v.push_back(i);
+
+	for (int i = 0; i < 5; i++)
+		cout << v[i] << " ";
+	cout << "\n";
+
+	return 0;
+}
